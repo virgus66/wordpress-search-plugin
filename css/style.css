@@ -1,0 +1,159 @@
+#ucadosearchwidget-2 {
+  background-color: #025a80;
+  color: white !important;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 30px;
+}
+
+
+#ucadosearchwidget-2 .row {
+  width: 100%;
+  margin: 10px 0;
+  min-height: 50px;
+}
+
+#ucadosearchwidget-2 .hover-container .row > div{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 10px 0;
+  position: relative;
+}
+
+form input[name='input1'] {
+  background: url("https://localhost/ucado-WordPress/wp-content/plugins/ucado-plugin/css/search.svg") no-repeat scroll 7px 7px; 
+  padding-left: 45px;
+  background-color: #1A6E87;
+  /* max-width: 400px; */
+}
+
+#ucadosearchwidget-2 .row.search-div {
+  margin-bottom: 40px;
+}
+
+#ucadosearchwidget-2 .search-div p {
+  margin: 0;
+  margin-left: 10px;
+}
+
+#ucadosearchwidget-2 .search-div p:nth-of-type(1) {
+  color: rgb(0, 167, 196);
+}
+
+#ucadosearchwidget-2 form {
+  padding: 0;
+  width: 100%;
+  max-width: 700px;
+}
+
+#ucadosearchwidget-2 .hover-container {
+  height: 0;
+  overflow: hidden;
+  transition: height .3s linear;
+}
+
+#ucadosearchwidget-2 form .row.search-div:focus ~ .hover-container {
+  /* height: 200px; */
+}
+
+#ucadosearchwidget-2 input {
+  outline: none;
+  border: none;
+  margin: 2px auto;
+}
+
+#ucadosearchwidget-2 select {
+  width: 100%;
+  -webkit-appearance: none;
+  outline: none;
+  text-align-last: center;
+}
+
+#listing .property-listing {
+  width: 100%;
+  height: 80%;
+  background-color: white;
+  text-align: center;
+  color: #aaa9a9;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+#listing .property-listing.selected {
+  background-color: #009BB5;
+  color: white;
+}
+
+#ucadosearchwidget-2 input[type='submit'] {
+  background-color: #009BB5;
+  color: white;
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#ucadosearchwidget-2 input.required { 
+  border: 2px solid red;
+}
+
+p.required {
+  color: red;
+  font-size: 10px;
+  position: absolute;
+  bottom: -35px;
+  left: 16px;
+}
+
+.shake {
+  animation: shakeAnim123 1s linear;
+}
+
+@keyframes shakeAnim123 {
+  0%   { transform: rotate3d(0deg,0,0) }
+  50%  { transform: rotate3d(-45deg,0,0) }
+  100% { transform: rotate3d(0deg,0,0) }
+}
+
+#ucadosearchwidget-2 #get-location-button {
+  cursor: pointer;
+}
+
+#ucadosearchwidget-2 input[type='number'] {
+  text-align: center;
+}
+
+#ucadosearchwidget-2 input[type='number']::-webkit-input-placeholder {
+  text-align: center;
+}
+#ucadosearchwidget-2 input[type='number']:-moz-placeholder { /* Firefox 18- */
+  text-align: center;  
+}
+#ucadosearchwidget-2 .row div input[type='number']::-moz-placeholder {  /* Firefox 19+ */
+  text-align: center;  
+}
+#ucadosearchwidget-2 input[type='number']:-ms-input-placeholder {  
+  text-align: center; 
+}
+
+
+
+/* ---- Google Maps style ---- */
+.pac-container.pac-logo:after {
+  display: none !important;
+}
+
+.pac-container .pac-icon {
+  display: none;
+}
+
+.pac-container .pac-matched {
+  font-size: 16px;
+}
+
+.pac-container .pac-item-query {
+  font-size: 16px;
+}
