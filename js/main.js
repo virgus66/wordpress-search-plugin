@@ -34,7 +34,7 @@ function getPlace() {
     let url = new URLSearchParams(data).toString()
     url = url.replace(/%2C/gi, ',');
     console.log(url)
-    window.location.href = "http://localhost:3335/app/dist/search?"+url;
+    window.location.href = "https://ucado.co.uk/app/dist/search?"+url;
   })
 }
 
@@ -59,7 +59,7 @@ function setLocationApi () {
           let url = new URLSearchParams(data).toString()
           url = url.replace(/%2C/gi, ',');
           console.log(url)
-          window.location.href = "http://localhost:3335/app/dist/search?"+url;
+          window.location.href = "https://ucado.co.uk/app/dist/search?"+url;
         })
       });
   } else console.log( "Geolocation is not supported by this browser." );
