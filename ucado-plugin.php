@@ -101,87 +101,26 @@ if (!class_exists('UcadoSearchWidget')) {
 
         echo "
             <form>
+
               <div class='row search-div'>
-                <div class=' col-lg-7 col-md-7 col-sm-12 col-xs-7'>
-                  <input type='text' name='input1' id='search_place_input' placeholder='{$instance['title']}'/>
+                <div class=' col-lg-7 col-md-7 col-sm-12 col-xs-7' style='position:relative;'>
+                  <img src='". plugins_url() ."/ucado-plugin/css/search.svg' class='search-image'>
+                  <input type='text' name='input1' id='location-input' placeholder='{$instance['title']}'/>
                 </div>
                 <div class=' col-lg-5 col-md-5 col-sm-12 col-xs-5'>
                   <p>Get Started Today</p>
                   <p>Find your perfect property</p>
                 </div>
-              </div>
-              
-              <div class='hover-container'>
-
-                <div class='row' id='listing'>
-                  <div class='col-lg-4 col-md-12 col-sm-12'>
-                    <div class='property-listing' data-listing-id='1'>For Sale</div>
-                  </div>
-                  <div class='col-lg-4 col-md-12 col-sm-12'>
-                    <div class='property-listing' data-listing-id='2'>To Let</div>
-                  </div>
-                  <div class='col-lg-4 col-md-12 col-sm-12'>
-                    <div class='property-listing' data-listing-id='3'>Student</div>
-                  </div>
                 </div>
-
-                <div class='row'>
-                  <div class='col-lg-8 col-md-12 col-sm-12'>
-                    <input type='text' placeholder='Location...' id='location-input' disabled />
-                  </div>
+                
+                <div class='row search-div' style='margin-bottom:0;'>
                   <div class='col-lg-4 col-md-12 col-sm-12' id='get-location-button'>
                     <img src='". plugins_url() ."/ucado-plugin/css/image.svg'  id='image1'>
                     <img src='". plugins_url() ."/ucado-plugin/css/loader.gif' id='image2' style='display:none; width: 20px;'> 
                     <span style='margin-left:5px'>Use current location</span>
                   </div>
                 </div>
-
-                <div class='row'>
-                  <div class='col-lg-3 col-md-12 col-sm-12'>
-                    <label for='search-radius'>Search radius: </label>
-                  </div>
-                  <div class='col-lg-5 col-md-12 col-sm-12'>
-                    <select id='radius-select'>
-                      {$radiusOptions}
-                    </select>
-                  </div>
-                  <div class='col-lg-4 col-md-12 col-sm-12'></div>
-                </div>
-
-                <div class='row'>
-                  <div class='col-lg-3 col-md-12 col-sm-12'>
-                    <label for='search-radius'>Bedrooms: </label>
-                  </div>
-                  <div class='col-lg-5 col-md-12 col-sm-12'>
-                      <select type='number' id='bed-min-box' placeholder='min' style='width:100%;'>
-                        {$bedsOptions}
-                      </select>
-                  </div>
-                  <div class='col-lg-4 col-md-12 col-sm-12'>
-                    <select id='type-select'>
-                      {$typesOptions}
-                      <option selected>Property type</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class='row'>
-                  <div class='col-lg-3 col-md-12 col-sm-12'>
-                    <label for='search-radius'>Price range: </label>
-                  </div>
-                  <div class='col-lg-5 col-md-12 col-sm-12'>
-                      <select type='number' id='price-min-box' placeholder='min' style='width:49%;'></select>
-                      <select type='number' id='price-max-box' placeholder='max' style='width:49%;'></select>
-                  </div>
-                  <div class='col-lg-4 col-md-12 col-sm-12'>
-                    <input type='submit' value='Send' id='submit-button'/>
-                  </div>
-                </div>
-                
-                  
-              </div>
-
-              
+                            
             </form>
           ";
 

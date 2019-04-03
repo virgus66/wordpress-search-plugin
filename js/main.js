@@ -1,14 +1,14 @@
 console.log('plugin installed :D')
 var autocomplete, geocoder;
 let locationInput = document.getElementById('location-input');
-let price_min_input = document.querySelector('#price-min-box');
-let price_max_input = document.querySelector('#price-max-box');
+// let price_min_input = document.querySelector('#price-min-box');
+// let price_max_input = document.querySelector('#price-max-box');
 let image1 = document.getElementById('image1');
 let image2 = document.getElementById('image2');
 
 
 function initAutocomplete() {
-  var input = document.getElementById('search_place_input');
+  var input = document.getElementById('location-input');
   var options = {
     // types: ['(cities)'],
     componentRestrictions: {country: 'uk'}
@@ -30,6 +30,11 @@ function getPlace() {
     data.longitude      = lng;
     data.location       = o;
     locationInput.value = o;
+
+    let url = new URLSearchParams(data).toString()
+    url = url.replace(/%2C/gi, ',');
+    console.log(url)
+    window.location.href = "http://localhost:3335/app/dist/search?"+url;
   })
 }
 
@@ -44,11 +49,17 @@ function setLocationApi () {
         codeLatLngToAddress(lat,lng).then( o => {
           data.latitude = lat;
           data.longitude = lng;
-          image1.style.display = 'block';
+          data.location       = o;
+          image1.style.display = 'inline-block';
           image2.style.display = 'none';
           locationInput.value = o;
           locationInput.classList.remove('required')
-          locationInput.parentElement.querySelector('p').style.display = 'none';
+          // locationInput.parentElement.querySelector('p').style.display = 'none';
+
+          let url = new URLSearchParams(data).toString()
+          url = url.replace(/%2C/gi, ',');
+          console.log(url)
+          window.location.href = "http://localhost:3335/app/dist/search?"+url;
         })
       });
   } else console.log( "Geolocation is not supported by this browser." );
@@ -118,53 +129,52 @@ function createPricesOptions() {
   return html;
 }
 
-// ON LOAD
-window.onload = ()=>  {
-  price_min_input.innerHTML = '<option value="0" selected>min</option>'
-  price_min_input.innerHTML += createPricesOptions()
-  price_max_input.innerHTML = createPricesOptions()
-  price_max_input.innerHTML += '<option value="0" selected>max</option>'
-}  
+// // ON LOAD
+// window.onload = ()=>  {
+//   price_min_input.innerHTML = '<option value="0" selected>min</option>'
+//   price_min_input.innerHTML += createPricesOptions()
+//   price_max_input.innerHTML = createPricesOptions()
+//   price_max_input.innerHTML += '<option value="0" selected>max</option>'
+// }  
 
-// LISTENERS
-document.querySelector('#search_place_input').addEventListener('focus', ()=>{
-  document.querySelector('.hover-container').style.height = "100%";
-})
+// // LISTENERS
+// document.querySelector('#location-input').addEventListener('focus', ()=>{
+//   document.querySelector('.hover-container').style.height = "100%";
+// })
 
-document.querySelectorAll('#listing .property-listing').forEach( node => {
-  node.addEventListener('click', (e)=>{
-    document.querySelectorAll('#listing .property-listing').forEach( node => {
-      node.classList.remove('selected');
-    })
-    e.target.classList.add('selected')
-    console.log(e.target)
-  })
-})
+// document.querySelectorAll('#listing .property-listing').forEach( node => {
+//   node.addEventListener('click', (e)=>{
+//     document.querySelectorAll('#listing .property-listing').forEach( node => {
+//       node.classList.remove('selected');
+//     })
+//     e.target.classList.add('selected')
+//     console.log(e.target)
+//   })
+// })
 
 document.getElementById('get-location-button').addEventListener('click', ()=>{
   image1.style.display = 'none';
-  image2.style.display = 'block';
+  image2.style.display = 'inline-block';
   setLocationApi();
 })
 
-document.getElementById('submit-button').addEventListener('click', (e)=>{
-  e.preventDefault();
-  getDataFromFields();
+// document.getElementById('submit-button').addEventListener('click', (e)=>{
+//   e.preventDefault();
+//   getDataFromFields();
 
-  if (data.latitude == null || data.longitude == null) {
-    locationInput.classList.add('required');
-    locationInput.classList.add('shake')
+//   if (data.latitude == null || data.longitude == null) {
+//     locationInput.classList.add('required');
+//     locationInput.classList.add('shake')
 
-    let node = document.createElement('p');
-    node.className = 'required';
-    node.innerHTML = 'This field is required';
-    locationInput.parentElement.appendChild(node);
-  }
-  else {
-    let url = new URLSearchParams(data).toString()
-    url = url.replace(/%2C/gi, ',');
-    console.log(url)
-    window.location.href = "http://localhost:3335/app/dist/search?"+url;
-  }
-})
-// fdjfkbs jbfnkdsbnkjsb bwekfbkj
+//     let node = document.createElement('p');
+//     node.className = 'required';
+//     node.innerHTML = 'This field is required';
+//     locationInput.parentElement.appendChild(node);
+//   }
+//   else {
+//     let url = new URLSearchParams(data).toString()
+//     url = url.replace(/%2C/gi, ',');
+//     console.log(url)
+//     window.location.href = "http://localhost:3335/app/dist/search?"+url;
+//   }
+// })

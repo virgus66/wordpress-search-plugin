@@ -1,18 +1,25 @@
-let radius      = document.querySelector('#radius-select');
-let bedMin      = document.querySelector('#bed-min-box');
-let bedMax      = document.querySelector('#bed-max-box');
-let priceMin    = document.querySelector('#price-min-box');
-let priceMax    = document.querySelector('#price-max-box');
-let type        = document.querySelector('#type-select');
+// let radius      = document.querySelector('#radius-select');
+// let bedMin      = document.querySelector('#bed-min-box');
+// let bedMax      = document.querySelector('#bed-max-box');
+// let priceMin    = document.querySelector('#price-min-box');
+// let priceMax    = document.querySelector('#price-max-box');
+// let type        = document.querySelector('#type-select');
+// let propListing = document.querySelectorAll('#listing .property-listing');
 let locationInp = document.querySelector('#location-input');
-let propListing = document.querySelectorAll('#listing .property-listing');
 
 let data = {
   latitude:  null,
   longitude: null,
-  radius:    0,
+  radius:    10 * 1609,
   types:     [],
   listings:  [],
+  offset:     0,
+  limit     : 0,
+  min_price : 0,
+  max_price : 0,
+  bedrooms  : 0,
+  bathrooms : 0,
+  location  : '',
 }
 
 function getDataFromFields() {
