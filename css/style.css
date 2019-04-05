@@ -1,20 +1,32 @@
-#ucadosearchwidget-2 {
+#ucadosearchwidget-3 {
   background-color: #363636;
   color: white !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0;
-  padding: 100px 20px 0 20px;
+  padding: 84px 20px 0 20px;
 }
 
-#ucadosearchwidget-2 .row {
+#ucadosearchwidget-3 .row {
   width: 100%;
   margin: 10px 0;
 }
 
-#ucadosearchwidget-2 .hover-container .row > div{
+#ucadosearchwidget-3 .hover-container .row > div{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
   margin: 10px 0;
   position: relative;
@@ -32,50 +44,52 @@ form input[name='input1'] {
   font-size: 16px;
 }
 
-#ucadosearchwidget-2 .row.search-div {
+#ucadosearchwidget-3 .row.search-div {
   margin-bottom: 20px;
 }
 
-#ucadosearchwidget-2 .row.search-div .search-image {
+#ucadosearchwidget-3 .row.search-div .search-image {
   position: absolute;
   top: 50%;
   left: 23px;
   height: 70%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
-#ucadosearchwidget-2 .search-div p {
+#ucadosearchwidget-3 .search-div p {
   margin: 0;
   margin-left: 10px;
 }
 
-#ucadosearchwidget-2 .search-div p:nth-of-type(1) {
+#ucadosearchwidget-3 .search-div p:nth-of-type(1) {
   color: #feb217;
 }
 
-#ucadosearchwidget-2 form {
+#ucadosearchwidget-3 form {
   padding: 0;
   width: 100%;
   max-width: 700px;
 }
 
-#ucadosearchwidget-2 .hover-container {
+#ucadosearchwidget-3 .hover-container {
   height: 0;
   overflow: hidden;
+  -webkit-transition: height .3s linear;
   transition: height .3s linear;
 }
 
-#ucadosearchwidget-2 form .row.search-div:focus ~ .hover-container {
+#ucadosearchwidget-3 form .row.search-div:focus ~ .hover-container {
   /* height: 200px; */
 }
 
-#ucadosearchwidget-2 input {
+#ucadosearchwidget-3 input {
   outline: none;
   border: none;
   margin: 2px auto;
 }
 
-#ucadosearchwidget-2 select {
+#ucadosearchwidget-3 select {
   width: 100%;
   -webkit-appearance: none;
   outline: none;
@@ -97,7 +111,7 @@ form input[name='input1'] {
   color: white;
 }
 
-#ucadosearchwidget-2 input[type='submit'] {
+#ucadosearchwidget-3 input[type='submit'] {
   background-color: #009BB5;
   color: white;
   width: 100%;
@@ -107,7 +121,7 @@ form input[name='input1'] {
   cursor: pointer;
 }
 
-#ucadosearchwidget-2 input.required { 
+#ucadosearchwidget-3 input.required { 
   border: 2px solid red;
 }
 
@@ -120,34 +134,41 @@ p.required {
 }
 
 .shake {
-  animation: shakeAnim123 1s linear;
+  -webkit-animation: shakeAnim123 1s linear;
+          animation: shakeAnim123 1s linear;
+}
+
+@-webkit-keyframes shakeAnim123 {
+  0%   { -webkit-transform: rotate3d(0deg,0,0); transform: rotate3d(0deg,0,0) }
+  50%  { -webkit-transform: rotate3d(-45deg,0,0); transform: rotate3d(-45deg,0,0) }
+  100% { -webkit-transform: rotate3d(0deg,0,0); transform: rotate3d(0deg,0,0) }
 }
 
 @keyframes shakeAnim123 {
-  0%   { transform: rotate3d(0deg,0,0) }
-  50%  { transform: rotate3d(-45deg,0,0) }
-  100% { transform: rotate3d(0deg,0,0) }
+  0%   { -webkit-transform: rotate3d(0deg,0,0); transform: rotate3d(0deg,0,0) }
+  50%  { -webkit-transform: rotate3d(-45deg,0,0); transform: rotate3d(-45deg,0,0) }
+  100% { -webkit-transform: rotate3d(0deg,0,0); transform: rotate3d(0deg,0,0) }
 }
 
-#ucadosearchwidget-2 #get-location-button {
+#ucadosearchwidget-3 #get-location-button {
   cursor: pointer;
 
 }
 
-#ucadosearchwidget-2 input[type='number'] {
+#ucadosearchwidget-3 input[type='number'] {
   text-align: center;
 }
 
-#ucadosearchwidget-2 input[type='number']::-webkit-input-placeholder {
+#ucadosearchwidget-3 input[type='number']::-webkit-input-placeholder {
   text-align: center;
 }
-#ucadosearchwidget-2 input[type='number']:-moz-placeholder { /* Firefox 18- */
+#ucadosearchwidget-3 input[type='number']:-moz-placeholder { /* Firefox 18- */
   text-align: center;  
 }
-#ucadosearchwidget-2 .row div input[type='number']::-moz-placeholder {  /* Firefox 19+ */
+#ucadosearchwidget-3 .row div input[type='number']::-moz-placeholder {  /* Firefox 19+ */
   text-align: center;  
 }
-#ucadosearchwidget-2 input[type='number']:-ms-input-placeholder {  
+#ucadosearchwidget-3 input[type='number']:-ms-input-placeholder {  
   text-align: center; 
 }
 
@@ -172,17 +193,17 @@ p.required {
 
 
 @media only screen and (max-width: 991px) {
-  #ucadosearchwidget-2 .row.search-div {
+  #ucadosearchwidget-3 .row.search-div {
     text-align: center;
   }
 
-  #ucadosearchwidget-2 .row.search-div p {
+  #ucadosearchwidget-3 .row.search-div p {
     margin-top: 10px;
   }
 }
 
 @media only screen and (max-width: 1099px) {
-  #ucadosearchwidget-2 {
-    padding-top: 5px;
+  #ucadosearchwidget-3 {
+    padding: 5px 0;
   }
 }

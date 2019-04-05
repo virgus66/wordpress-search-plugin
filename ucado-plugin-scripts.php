@@ -1,7 +1,7 @@
 <?php 
 
 function ucado_add_scripts() {
-  wp_enqueue_style('ucado-main-style', plugins_url().'/ucado-plugin/css/style.css');
+  wp_enqueue_style('ucado-main-style', plugins_url().'/ucado-plugin/css/style.css',array(), time());
   wp_enqueue_style('material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons');
   wp_enqueue_script('ucado-data-transfer', plugins_url().'/ucado-plugin/js/DataTransfer.js','',false,true);
   wp_enqueue_script('ucado-scripts', plugins_url().'/ucado-plugin/js/main.js','',false,true);

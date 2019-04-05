@@ -3,7 +3,7 @@
  * Plugin Name: Ucado Searchbar Plugin
  * Plugin URI: http://www.ucado.co.uk/app
  * Description: The very first plugin that I have ever created.
- * Version: 1.0
+ * Version: 1.2
  * Author: David Cabala
  * Author URI: 
  */
@@ -100,8 +100,10 @@ if (!class_exists('UcadoSearchWidget')) {
       }
 
         echo "
-            <form>
+           <div style='height:1px; width: 100%; background-color:#feb217;'></div>
 
+        <form style='margin-top:15px;'>
+        
               <div class='row search-div'>
                 <div class=' col-lg-7 col-md-7 col-sm-12 col-xs-7' style='position:relative;'>
                   <img src='". plugins_url() ."/ucado-plugin/css/search.svg' class='search-image'>
