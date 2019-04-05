@@ -22,20 +22,19 @@ function initAutocomplete() {
 
 function getPlace() {
   var place = autocomplete.getPlace();
-  let lat = place.geometry.location.lat()
-  let lng = place.geometry.location.lng()
-
-  codeLatLngToAddress(lat, lng).then( o => {
-    data.latitude       = lat;
-    data.longitude      = lng;
-    data.location       = o;
-    locationInput.value = o;
-
-    let url = new URLSearchParams(data).toString()
-    url = url.replace(/%2C/gi, ',');
-    console.log(url)
-    window.location.href = "https://ucado.co.uk/app/dist/search?"+url;
-  })
+  if (place.geometry) {
+    let lat = place.geometry.location.lat()
+    let lng = place.geometry.location.lng()
+  
+    codeLatLngToAddress(lat, lng).then( o => {
+      data.latitude       = lat;
+      data.longitude      = lng;
+      data.location       = o;
+      locationInput.value = o;
+  
+      redirectToApp()
+    })
+  }
 }
 
 function setLocationApi () {
@@ -56,10 +55,7 @@ function setLocationApi () {
           locationInput.classList.remove('required')
           // locationInput.parentElement.querySelector('p').style.display = 'none';
 
-          let url = new URLSearchParams(data).toString()
-          url = url.replace(/%2C/gi, ',');
-          console.log(url)
-          window.location.href = "https://ucado.co.uk/app/dist/search?"+url;
+          redirectToApp()
         })
       });
   } else console.log( "Geolocation is not supported by this browser." );
@@ -87,6 +83,31 @@ codeLatLngToAddress = (lat,lng) => {
       } else rej(`Google status: ${status}`)
     })
   })
+}
+
+googleGeocodeApi = (place) => {
+  fetch('https://maps.googleapis.com/maps/api/geocode/json?address='+place+',uk&key=AIzaSyBgQ5E4Laeib6D2d7XgMJegFuPMZsBv4-k')
+  .then( r=> r.json() )
+  .then( o => {
+    if (o.status == 'OK') {
+      let { formatted_address:location, geometry:{location:{lat}}, geometry:{location:{lng}} } = o.results[0]
+      console.log( {location, lat, lng } )
+      data.latitude       = lat;
+      data.longitude      = lng;
+      data.location       = location;
+      locationInput.value = location;
+      
+      redirectToApp()
+    }
+    else M.toast({html: `Can't find a place`, classes: 'rounded custom-toast-css'});
+  })
+}
+
+redirectToApp = () => {
+  let url = new URLSearchParams(data).toString()
+  url = url.replace(/%2C/gi, ',');
+  console.log(url)
+  window.location.href = "https://ucado.co.uk/app/dist/search?"+url;
 }
 
 function createPricesOptions() {
@@ -156,6 +177,12 @@ document.getElementById('get-location-button').addEventListener('click', ()=>{
   image1.style.display = 'none';
   image2.style.display = 'inline-block';
   setLocationApi();
+})
+
+document.querySelector('#location-input').addEventListener('keypress', e => {
+  if (e.code == "Enter") {
+    googleGeocodeApi(locationInput.value)
+  }
 })
 
 // document.getElementById('submit-button').addEventListener('click', (e)=>{

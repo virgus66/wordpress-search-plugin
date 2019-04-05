@@ -102,7 +102,7 @@ if (!class_exists('UcadoSearchWidget')) {
       echo "
         <div style='height:1px; width: 100%; background-color:#feb217;'></div>
 
-        <form style='margin-top:15px;'>
+        <form onsubmit='return false;' style='margin-top:15px;'>
           <div class='row search-div'>
             <div class=' col-lg-7 col-md-7 col-sm-12 col-xs-7' style='position:relative;'>
               <img src='". plugins_url() ."/ucado-plugin/css/search.svg' class='search-image'>
@@ -120,7 +120,7 @@ if (!class_exists('UcadoSearchWidget')) {
                 <img src='". plugins_url() ."/ucado-plugin/css/loader.gif' id='image2' style='display:none; width: 20px;'> 
                 <span style='margin-left:5px'>Use current location</span>
               </div>
-            </div>       
+            </div>
         </form>
       ";
 
