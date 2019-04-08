@@ -180,6 +180,8 @@ document.getElementById('get-location-button').addEventListener('click', ()=>{
 })
 
 document.querySelector('#location-input').addEventListener('keypress', e => {
+  e.preventDefault()
+  console.log('kod', e.code)
   if (e.code == "Enter") {
     googleGeocodeApi(locationInput.value)
   }
